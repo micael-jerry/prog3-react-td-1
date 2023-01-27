@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TodoType } from "../types/TodoType";
-import InputTodo from "./InputTodo";
-import RenderTodo from "./RenderTodo";
+import InputTodo from "./InputTodo/InputTodo";
+import RenderTodo from "./RenderTodo/RenderTodo";
 
 const Todo: React.FC<{}> = () => {
 	const [variable, setVariable] = useState<boolean>(false);
