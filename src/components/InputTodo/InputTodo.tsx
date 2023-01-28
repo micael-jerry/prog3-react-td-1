@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState, KeyboardEvent } from "react";
 import { TodoType } from "../../types/TodoType";
-import "./InputTodo.css"
+import "./InputTodo.css";
 
 const InputTodo: React.FC<{
     setTodoList: (todoList: any) => any;
@@ -11,15 +11,8 @@ const InputTodo: React.FC<{
         description: "",
         completed: false,
     });
-
-    const handleSubmit = () => {
-        setTodoList((stateTodoList: TodoType[]) => [...stateTodoList, input]);
-        setInput({
-            title: "",
-            description: "",
-            completed: false,
-        });
-    };
+    const inputTitle = useRef<HTMLInputElement>(null);
+    const inputDescription = useRef<HTMLInputElement>(null);
 
     const handleChange = (event: any) => {
         const { value, id } = event.target;
@@ -31,6 +24,40 @@ const InputTodo: React.FC<{
         });
     };
 
+    const handleSubmit = () => {
+        setTodoList((stateTodoList: TodoType[]) => [...stateTodoList, input]);
+        setInput({
+            title: "",
+            description: "",
+            completed: false,
+        });
+    };
+
+    const focusDescriptionInputFromTitleInput = (
+        event: KeyboardEvent<HTMLInputElement>
+    ) => {
+        if (event.key === "Enter") {
+            inputDescription.current!.focus();
+        }
+    };
+
+    const focusTitleInputFromDescriptionInput = (
+        event: KeyboardEvent<HTMLInputElement>
+    ) => {
+        if (event.key === "Enter") {
+            inputTitle.current!.focus();
+        }
+    };
+
+    const handleSubmitByPressEnter = (
+        event: KeyboardEvent<HTMLInputElement>
+    ) => {
+        if (event.key === "Enter") {
+            handleSubmit();
+            focusTitleInputFromDescriptionInput(event);
+        }
+    };
+
     return (
         <>
             <div id={"inputTodo"} className={"row align-items-center"}>
@@ -39,9 +66,11 @@ const InputTodo: React.FC<{
                         <input
                             type={"text"}
                             id={"title"}
-                            onChange={handleChange}
-                            value={input.title}
                             className={"form-control"}
+                            ref={inputTitle}
+                            value={input.title}
+                            onChange={handleChange}
+                            onKeyDown={focusDescriptionInputFromTitleInput}
                         />
                         <label htmlFor={"title"}>Title</label>
                     </div>
@@ -49,9 +78,11 @@ const InputTodo: React.FC<{
                         <input
                             type={"text"}
                             id={"description"}
-                            onChange={handleChange}
-                            value={input.description}
                             className={"form-control"}
+                            ref={inputDescription}
+                            value={input.description}
+                            onChange={handleChange}
+                            onKeyDown={handleSubmitByPressEnter}
                         />
                         <label htmlFor={"description"}>Description</label>
                     </div>
