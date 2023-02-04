@@ -4,7 +4,6 @@ import InputTodo from "./InputTodo/InputTodo";
 import RenderTodo from "./RenderTodo/RenderTodo";
 
 const Todo: React.FC<{}> = () => {
-    const [variable, setVariable] = useState<boolean>(false);
     const [todoList, setTodoList] = useState<TodoType[]>([
         {
             title: "title_1",
@@ -19,10 +18,10 @@ const Todo: React.FC<{}> = () => {
     ]);
 
     function checkList(event: any) {
-        let state = todoList;
-        state[event.target.id].completed = true;
-        setTodoList(state);
-        setVariable((val) => !val);
+        setTodoList((state) => {
+            state[event.target.id].completed = true;
+            return [...state];
+        });
     }
 
     return (
