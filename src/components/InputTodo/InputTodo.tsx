@@ -66,6 +66,7 @@ const InputTodo: React.FC<{
                         <input
                             type={"text"}
                             id={"title"}
+                            aria-label={"title"}
                             className={"form-control"}
                             ref={inputTitle}
                             value={input.title}
@@ -78,6 +79,7 @@ const InputTodo: React.FC<{
                         <input
                             type={"text"}
                             id={"description"}
+                            aria-label={"description"}
                             className={"form-control"}
                             ref={inputDescription}
                             value={input.description}
