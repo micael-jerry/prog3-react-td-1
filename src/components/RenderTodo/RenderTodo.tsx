@@ -37,6 +37,7 @@ const RenderTodo: React.FC<{
                                                 >
                                                     <input
                                                         type={"checkbox"}
+                                                        data-testid={"check-todo"}
                                                         key={t.description.trim()}
                                                         id={i.toString()}
                                                         onClick={checkList}
