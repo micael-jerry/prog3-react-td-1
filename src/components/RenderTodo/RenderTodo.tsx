@@ -13,14 +13,21 @@ const RenderTodo: React.FC<{
             <div>
                 <div className={"list p-4"}>
                     <h2>TODO</h2>
-                    <ul className={"list-group"}>
+                    <ul
+                        data-testid={"list-group-todo"}
+                        className={"list-group"}
+                    >
                         {todoList.map((t, i) => {
                             if (!t.completed) {
                                 return (
                                     <>
                                         <li
                                             className={"list-group-item"}
-                                            key={(i + t.description).trim()}
+                                            key={(
+                                                i +
+                                                t.description +
+                                                t.title
+                                            ).trim()}
                                         >
                                             <div className="row align-items-center">
                                                 <div
@@ -57,7 +64,10 @@ const RenderTodo: React.FC<{
             <div>
                 <div className={"list p-4"}>
                     <h2>DONE</h2>
-                    <ul className={"list-group"}>
+                    <ul
+                        data-testid={"list-group-done"}
+                        className={"list-group"}
+                    >
                         {todoList.map((t, i) => {
                             if (t.completed) {
                                 return (
