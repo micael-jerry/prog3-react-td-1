@@ -61,3 +61,10 @@ test("Add on ADD click", () => {
 
     expect(setTodoListMock.mock.calls.length).toBe(1);
 });
+
+test("[SNAPSHOT] test render InputTodo", () => {
+    const setTodoListMock = jest.fn();
+    const { container } = render(<InputTodo setTodoList={setTodoListMock} />);
+
+    expect(container).toMatchSnapshot();
+});

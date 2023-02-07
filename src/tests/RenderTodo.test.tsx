@@ -66,3 +66,12 @@ test("Click on the checkbox to change the status of a todo to done", () => {
     fireEvent.click(listDoneElement[0]);
     expect(checkListMock.mock.calls.length).toBe(1);
 });
+
+test("[SNAPSHOT] test render RenderTodo", () => {
+    const checkListMock = jest.fn();
+    const { container } = render(
+        <RenderTodo todoList={[]} checkList={checkListMock} />
+    );
+
+    expect(container).toMatchSnapshot();
+});

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[SNAPSHOT] test render RenderTodo 1`] = `
+<div>
+  <div
+    class="row g-4 py-5 row-cols-1 row-cols-lg-2"
+  >
+    <div>
+      <div
+        class="list p-4"
+      >
+        <h2>
+          TODO
+        </h2>
+        <ul
+          class="list-group"
+          data-testid="list-group-todo"
+        />
+      </div>
+    </div>
+    <div>
+      <div
+        class="list p-4"
+      >
+        <h2>
+          DONE
+        </h2>
+        <ul
+          class="list-group"
+          data-testid="list-group-done"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

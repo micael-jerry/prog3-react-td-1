@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div>
+  <div
+    class="row align-items-center"
+    id="inputTodo"
+  >
+    <div
+      class="col-lg-8 col-md-8 col-sm-8"
+    >
+      <div
+        class="form-floating mb-4"
+      >
+        <input
+          aria-label="title"
+          class="form-control"
+          id="title"
+          type="text"
+          value=""
+        />
+        <label
+          for="title"
+        >
+          Title
+        </label>
+      </div>
+      <div
+        class="form-floating mb-4"
+      >
+        <input
+          aria-label="description"
+          class="form-control"
+          id="description"
+          type="text"
+          value=""
+        />
+        <label
+          for="description"
+        >
+          Description
+        </label>
+      </div>
+    </div>
+    <div
+      class="col-lg-4 col-md-4 col-sm-4"
+    >
+      <button
+        class="w-75 btn btn-lg  my-btn mb-3"
+      >
+        ADD
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[SNAPSHOT] test render InputTodo 1`] = `
+<div>
+  <div
+    class="row align-items-center"
+    id="inputTodo"
+  >
+    <div
+      class="col-lg-8 col-md-8 col-sm-8"
+    >
+      <div
+        class="form-floating mb-4"
+      >
+        <input
+          aria-label="title"
+          class="form-control"
+          id="title"
+          type="text"
+          value=""
+        />
+        <label
+          for="title"
+        >
+          Title
+        </label>
+      </div>
+      <div
+        class="form-floating mb-4"
+      >
+        <input
+          aria-label="description"
+          class="form-control"
+          id="description"
+          type="text"
+          value=""
+        />
+        <label
+          for="description"
+        >
+          Description
+        </label>
+      </div>
+    </div>
+    <div
+      class="col-lg-4 col-md-4 col-sm-4"
+    >
+      <button
+        class="w-75 btn btn-lg  my-btn mb-3"
+      >
+        ADD
+      </button>
+    </div>
+  </div>
+</div>
+`;
